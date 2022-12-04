@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AccountDto {
     private String accountNumber;
-    private int balance;
-    private int limit;
+    private int balanceUsd;
+    private int limitUsd;
 }
 
 
