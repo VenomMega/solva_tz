@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -22,5 +25,11 @@ public class AccountTransaction {
     private String currency;
     private double sum;
     private String description;
+
+    @CreationTimestamp
+    private LocalDate transactionDate;
+
+    private boolean limitExceeded;
+
 }
 
