@@ -1,6 +1,6 @@
 package kz.alibek.solva.controller;
 
-import kz.alibek.solva.model.entity.Account;
+import kz.alibek.solva.model.dto.AccountDto;
 import kz.alibek.solva.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ public class AccountController {
 
     @PostMapping("/add")
     @ResponseBody
-    public ResponseEntity createAccount(@RequestBody Account account){
+    public ResponseEntity createAccount(@RequestBody AccountDto account){
         try{
             accountService.createAccount(account);
             return ResponseEntity.ok("Account was created");

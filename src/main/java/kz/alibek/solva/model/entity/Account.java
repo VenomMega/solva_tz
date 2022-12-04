@@ -23,7 +23,11 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String accountNumber;
-    private int balance;
+
+    @Column(name = "balance")
+    private float balanceUsd;
+    private float balanceKzt;
+    private float balanceRub;
 
     @CreationTimestamp
     private LocalDate createdDate;
