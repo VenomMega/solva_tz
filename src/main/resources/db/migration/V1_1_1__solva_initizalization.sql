@@ -1,4 +1,4 @@
-create table public.bank_accounts
+create table public.currency
 (
     id                 bigserial
         primary key
@@ -9,14 +9,28 @@ create table public.bank_accounts
 );
 
 
-create table accounts
+create table public.accounts
 (
     id             bigserial
-        primary key
-        unique,
+        primary key,
     account_number text,
-    balance        float not null,
+    balance        double precision,
+    balance_kzt    double precision,
+    balance_rub    double precision,
     created_date   date,
     modified_date  date,
-    limit_usd      float not null
+    limit_usd      double precision default 0 not null
+);
+
+create table public.account_transaction
+(
+    id                   bigserial
+        primary key,
+    account_from         text             not null,
+    account_to           text             not null,
+    transfer_sum         double precision not null,
+    transaction_currency text             not null,
+    transfer_description text,
+    transaction_date     date,
+    limit_exceeded       boolean
 );

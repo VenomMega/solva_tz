@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -43,5 +44,11 @@ public class AccountService {
     public float multipleByExchangeRate(String currencyBalance, float exchangeRate){
         float balance = Float.parseFloat(currencyBalance);
         return balance * exchangeRate;
+    }
+
+    public Account changeLimit(Long id, int newLimit){
+        Optional<Account> account = accountRepository.findById(id);
+        account.get().setLimitUsd(newLimit);
+        return accountRepository.save(account.get());
     }
 }

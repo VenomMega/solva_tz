@@ -1,7 +1,6 @@
-package kz.alibek.solva.model.entity;
+package kz.alibek.solva.model.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,31 +10,18 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDate;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table
-public class AccountTransaction {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String accountFrom;
-    private String accountTo;
-
-    @Column(name = "transaction_currency")
-    private String currency;
+@Builder
+public class AccountTransactionDto {
 
     @Column(name = "transfer_sum")
     private double sum;
+
     @Column(name = "transfer_description")
     private String description;
 
     @CreationTimestamp
     private LocalDate transactionDate;
-
     private boolean limitExceeded;
-
 }
-
