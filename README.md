@@ -4,5 +4,10 @@ _____________
 Курсы валют берутся с https://www.alphavantage.co/
 
 ```
-http://localhost:8080/account/add
+| LEFT | CENTER | RIGHT |
+|----------------|:---------:|----------------:|
+| По левому краю | По центру | По правому краю |
+| текст | текст | текст |
+http://localhost:8080/account/add - добавление нового пользователя
+http://localhost:8080/account/transfer - 
 ```
