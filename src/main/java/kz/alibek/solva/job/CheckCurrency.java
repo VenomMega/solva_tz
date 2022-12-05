@@ -29,14 +29,20 @@
 //    @Scheduled(cron = "* * * * * *")
 //    public void checkCurrency(){
 //        log.info("Start check currencyJob");
-//        check();
+//        check("USD", "KZT");
+//        check("USD", "RUB");
+//        check("KZT", "USD");
+//        check("KZT", "RUB");
+//        check("RUB", "USD");
+//        check("RUB", "KZT");
 //        log.info("Finish check currencyJob");
 //
 //    }
-//    public void check(){
+//    public void check(String firstCurrency, String secondCurrency){
 //        try {
-////
-//            String currencyRate = restTemplateService.send(uri,null,null, String.class);
+//            String url = "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=" + firstCurrency + "&to_currency=" + secondCurrency +"&apikey=40FKBWSMPULDAFBD";
+//            System.out.println(url);
+//            String currencyRate = restTemplateService.send(url,null,null, String.class);
 //            JSONObject obj = new JSONObject(currencyRate);
 //            String currencyRateFrom = obj.getJSONObject("Realtime Currency Exchange Rate").getString("1. From_Currency Code");
 //            String currencyRateTo = obj.getJSONObject("Realtime Currency Exchange Rate").getString("3. To_Currency Code");
@@ -45,9 +51,7 @@
 //            finalCurrencyRate.setFromCurrency(currencyRateFrom);
 //            finalCurrencyRate.setToCurrency(currencyRateTo);
 //            finalCurrencyRate.setExchangeRate(currencyExchangeRate);
-////            System.out.println(currencyRate.setCurrency(restTemplateService.send(uri,null,null, CurrencyRateDto.class)));
-////            log.info(currencyRate);
-//                        if (currencyRate != null){
+//            if (currencyRate != null){
 //                currencyRateRepository.save(finalCurrencyRate);
 //            }
 //        } catch (Exception e){
@@ -55,4 +59,6 @@
 //        }
 //
 //    }
+//
+//
 //}

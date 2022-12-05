@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "bank_accounts")
+@Table(name = "currency")
 public class CurrencyRate {
 
     @Id
