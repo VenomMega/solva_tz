@@ -7,13 +7,10 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class RestTemplateService {
-    public <T> T send(String uri, String token, Object entity, Class<T> classType) {
+    public <T> T send(String uri, Object entity, Class<T> classType) {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        if (token != null) {
-            headers.add("Authorization", token);
-        }
         if (entity == null) {
             ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, new HttpEntity<>(headers), classType);
             if (responseEntity.getBody() == null) {

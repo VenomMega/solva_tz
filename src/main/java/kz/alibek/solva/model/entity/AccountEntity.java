@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity
 @Table(name = "accounts")
-public class Account {
+public class AccountEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +25,9 @@ public class Account {
     private String accountNumber;
 
     @Column(name = "balance")
-    private float balanceUsd;
-    private float balanceKzt;
-    private float balanceRub;
+    private double balanceUsd;
+    private double balanceKzt;
+    private double balanceRub;
 
     @CreationTimestamp
     private LocalDate createdDate;
@@ -36,6 +36,6 @@ public class Account {
     private LocalDate modifiedDate;
 
     @Min(value = 0, message = "Limit must be positive")
-    private int limitUsd;
+    private double limitUsd;
 
 }

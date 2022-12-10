@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "currency")
-public class CurrencyRate {
+public class CurrencyRateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

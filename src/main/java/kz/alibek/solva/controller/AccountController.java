@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 public class AccountController {
 
     private final AccountService accountService;
-    private final AccountTransactionService accountTransactionService;
 
     @PostMapping("/add")
     @ResponseBody
@@ -25,22 +24,6 @@ public class AccountController {
     @GetMapping("/")
     public ResponseEntity getAll() {
         return ResponseEntity.ok(accountService.accountList());
-    }
-
-    @PostMapping("/transfer")
-    @ResponseBody
-    public ResponseEntity makeTransfer(@RequestParam(name = "fromAccount") String account1,
-                                       @RequestParam(name = "toAccount") String account2,
-                                       @RequestParam(name = "sum") float sum,
-                                       @RequestParam(name = "currency") String currency) {
-        accountTransactionService.transferMoney(account1, account2, sum, currency);
-        return ResponseEntity.ok("Transfer good");
-    }
-
-    @PostMapping("/limit")
-    @ResponseBody
-    public ResponseEntity getAllLimitTransactions(@RequestParam(name = "accountNumber") String accountNumber) {
-        return ResponseEntity.ok(accountTransactionService.showAllTransactions(accountNumber));
     }
 
     @PutMapping("/changeLimit/{accountId}")
